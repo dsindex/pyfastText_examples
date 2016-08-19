@@ -25,5 +25,21 @@
   ```
 
 - classification
+  - train
+  ```shell
+  python train_classifier.py --train=amazon_review_polarity.train --model=polarity
 
-
+  # training files are downloadable via https://github.com/facebookresearch/fastText/blob/master/classification-results.sh 
+  ```
+  - evaluate
+  ```shell
+  python evaluate_classifier.py --model=polarity.bin --test=amazon_review_polarity.test
+  P@1: 0.9110425
+  Number of examples: 400000
+  ```
+  - predict
+  ```shell
+  python predict.py --model=polarity.bin
+  bad design , the rubber/plastic material ripped within moments at two points where the volume and phone jacks meet .
+  [u'__label__1']
+  ```
