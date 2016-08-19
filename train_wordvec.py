@@ -25,14 +25,35 @@ if __name__ == '__main__':
 	model_type = options.type
 	if not model_type : model_type = 'skipgram'
 
+	# default parameters
+	lr=0.005
+	dim=100
+	ws=5
+	epoch=5
+	min_count=1
+	neg=5
+	word_ngrams=1
+	loss='ns'
+	bucket=2000000
+	minn=3
+	maxn=6
+	thread=4
+	lr_update_rate=10000
+	t=1e-4
+	silent=0
+
 	if model_type == 'skipgram' :
 		# Skipgram model
-		model = fasttext.skipgram('data.txt', 'model')
-		if VERBOSE : print model.words # list of words in dictionary
+		model = fasttext.skipgram(train_path, model_path, lr, dim, ws, epoch, \
+								  min_count, neg, word_ngrams, loss, bucket, \
+								  minn, maxn, thread, lr_update_rate, t, silent)
+		if VERBOSE : print model.words
 	else :
 		# CBOW model
-		model = fasttext.cbow('data.txt', 'model')
-		if VERBOSE : print model.words # list of words in dictionary
+		model = fasttext.cbow(train_path, model_path, lr, dim, ws, epoch, \
+							  min_count, neg, word_ngrams, loss, bucket, \
+							  minn, maxn, thread, lr_update_rate, t, silent)
+		if VERBOSE : print model.words
 	
 
 	
