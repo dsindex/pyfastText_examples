@@ -1,7 +1,7 @@
 # pyfastText
 
 - description
-  - test code for [python wrapper of fastText](https://github.com/salestock/fastText.py)
+  - test code for [fastText.py(python wrapper of fastText)](https://github.com/salestock/fastText.py)
   - installation
   ```shell
   pip install fasttext
