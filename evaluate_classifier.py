@@ -24,7 +24,9 @@ if __name__ == '__main__':
 
 	classifier = fasttext.load_model(model_path)
 
-	precision_at_one, nexamples = classifier.test(test_path)
-	print 'P@1:', precision_at_one
-	print 'Number of examples:', nexamples
+	result = classifier.test(test_path)
+	print 'P@1:', result.precision
+	print 'R@1:', result.recall
+	print 'Number of examples:', result.nexamples	
+
 	
